@@ -1,7 +1,17 @@
 import React from "react";
 import classes from "./MainComponent.module.css";
 
-const MainComponent = ({ data, mainIcon, border, circleBg }) => {
+const MainComponent = ({
+  topHeader,
+  data,
+  mainIcon,
+  border,
+  circleBg,
+  heading,
+  headingColor,
+  subHeading,
+  subHeadingColor,
+}) => {
   const calculatePosition = (index, totalImages, radius) => {
     const angle = (360 / totalImages) * index - 90;
     const adjustedRadius = radius * (1 + 1 / totalImages); // Adjust radius dynamically
@@ -19,17 +29,6 @@ const MainComponent = ({ data, mainIcon, border, circleBg }) => {
       const baseRadius = radius * 1;
       const { x, y } = calculatePosition(index, totalImages, baseRadius);
 
-      // const xPosition =
-      //   index === data.length - 1 ||
-      //   (index === (data.length / 3) * 2 - 1 && data.length !== 0)
-      //     ? x - 40
-      //     : index === 1 ||
-      //       (index === Math.floor(data.length / 2) && data.length % 2 !== 0)
-      //     ? x + 40
-      //     : x;
-
-      // const yPosition =
-      //   index === 0 ? y - 40 : index === data.length / 2 ? y + 40 : y;
       const transformStyle = {
         transform: `translate(${x}px, ${
           data.length === 3 && index === 0 ? y + 50 : y
@@ -75,6 +74,20 @@ const MainComponent = ({ data, mainIcon, border, circleBg }) => {
       className={classes.mainContainer}
       style={{ background: "var(--mainBg)" }}
     >
+      <div className={classes.topHeader}>
+        <h5
+          className={classes.subHeading}
+          style={{ "--color": topHeader.subHeadingColor }}
+        >
+          {topHeader.heading}
+        </h5>
+        <h2
+          className={classes.heading}
+          style={{ "--color": topHeader.headingColor }}
+        >
+          {topHeader.heading}
+        </h2>
+      </div>
       <div className={classes.mainWrapper}>
         <div
           className={classes.wrapper}
@@ -100,8 +113,15 @@ const MainComponent = ({ data, mainIcon, border, circleBg }) => {
           <div className={classes.content} style={{ "--bg": circleBg }}>
             <div className={classes.textContainer}>
               <div className={classes.mainIcon}>{mainIcon}</div>
-              <h3 className={classes.title}>Some Things I Believe in</h3>
-              <p className={classes.tagline}>Nat Friedman</p>
+              <h3 className={classes.title} style={{ "--color": headingColor }}>
+                {heading}
+              </h3>
+              <p
+                className={classes.tagline}
+                style={{ "--color": subHeadingColor }}
+              >
+                {subHeading}
+              </p>
             </div>
           </div>
         </div>

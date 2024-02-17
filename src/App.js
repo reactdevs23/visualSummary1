@@ -34,12 +34,18 @@ function App() {
     fontFamily: "'Inter', sans-serif",
 
     background: "#fff",
-    date: "Thursday, 8. Feb 2024",
-    dateColor: "#155EEF",
-    heading: "Daily Stand Up",
-    headingColor: "#000",
+    topHeader: {
+      subHeading: "VISUAL SUMMARY",
+      subHeadingColor: "#EE46BC",
+      heading: "Beliefs on Progress & Innovation",
+      headingColor: "#000",
+    },
     mainIcon: <Icon color="#fff" />,
     circleBg: "#000",
+    heading: "Some Things I Believe in",
+    headingColor: "#fff",
+    subHeading: "Nat Friedman",
+    subHeadingColor: "#d0d5dd",
 
     data: [
       {
